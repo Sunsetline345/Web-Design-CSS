@@ -21,8 +21,8 @@
 
 /* 🎨 PERSONALIZE AQUI: troque a fonte e a cor do texto do site inteiro */
 body {
-  font-family: 'Inter', Arial, sans-serif;
-  color: #2c3e50;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: #02444d;
   line-height: 1.6;
 }
 
@@ -39,7 +39,21 @@ body {
 }
 
 /* 🎬 Faça junto com o Professor: ANIMAÇÃO com @keyframes — o logo entra deslizando de cima quando a página abre */
+.logo {
+  animation: entrarDoTopo 0.8s ease-out both;
 
+}
+
+@keyframes entrarDoTopo{
+  from{
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to{
+    opacity: 100;
+    transform: translateY(0px)
+  }
+}
 
 .menu a {
   color: #fff;
@@ -54,6 +68,22 @@ body {
    1) Criar o "traço" com ::after (ele começa com largura 0, ou seja, invisível)
    2) Avisar ao navegador que a largura (width) deve ANIMAR com transition
    3) No :hover, mudar a largura para 100% — a transition faz o resto sozinha */
+
+.menu a::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  Bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition: width .3s ease;
+
+}
+
+.menu a:hover::after{
+  width: 100%;
+}
 
 section {
   padding: 3rem 2rem;
@@ -74,11 +104,24 @@ section {
 
 /* 🎨 PERSONALIZE AQUI: troque o tamanho da borda arredondada e a sombra do card */
 .card {
-  background: #fff;
+  background: #bef0ed;
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
   transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 19, 155, 0.353);
+}
+
+.card img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-top: 1rem;
 }
 
 /* Bônus de transição: card levanta ao passar o mouse Faça junto com o professor*/
@@ -97,6 +140,25 @@ section {
    1) position: fixed -> o botão fica "grudado" na tela, mesmo rolando a página
    2) TRANSFORM é usado no :hover para levantar e crescer o botão
    3) TRANSITION avisa o navegador para animar esse movimento suavemente */
+
+  .botao-topo{
+    position: fixed;
+    color: aquamarine;
+    background: #061ea880;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    transition: transform .25s ease;
+    max-width: 100%;
+    width: 30px;
+    height: auto;
+   
+  }
+
+  .botao-topo:hover{
+    transform: translateY(-10px);
+    color: aqua;
+  }
 
 @media (max-width: 600px) {
   .cards {
